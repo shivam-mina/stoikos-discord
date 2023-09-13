@@ -1,10 +1,9 @@
 "use client"
 
-import { UploadDropzone } from "@/lib/uploadthing"
+import { UploadDropzone } from "@/lib/upload-thing"
 import { X } from "lucide-react"
 import Image from "next/image"
 import "@uploadthing/react/styles.css"
-import { error } from "console"
 
 interface FileUploadProps {
   onChange: (url?: string) => void
