@@ -8,6 +8,18 @@ datasource db {
   relationMode = "prisma"
 }
 
+enum MemberRole {
+  ADMIN
+  MOD
+  GUEST
+}
+
+enum ChannelType {
+  TEXT
+  AUDIO
+  VIDEO
+}
+
 model Profile {
   id       String @id @default(uuid())
   userId   String @unique
@@ -39,18 +51,6 @@ model Server {
   updatedAt DateTime @updatedAt
 
   @@index([profileId])
-}
-
-enum MemberRole {
-  ADMIN
-  MOD
-  GUEST
-}
-
-enum ChannelType {
-  TEXT
-  AUDIO
-  VIDEO
 }
 
 model Member {
