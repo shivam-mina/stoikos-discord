@@ -3,10 +3,10 @@ import { currentProfile } from "@/lib/current-profile"
 import { db } from "@/lib/db"
 import { NextResponse } from "next/server"
 
-export const PATCH = async (
+export async function PATCH(
   req: Request,
   { params }: { params: { serverId: string } }
-) => {
+) {
   try {
     const profile = await currentProfile()
     if (!profile) return new NextResponse("UNAUTHORIZED", { status: 401 })
