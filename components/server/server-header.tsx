@@ -24,7 +24,7 @@ interface ServerHeaderProps {
   server: ServerWithMembersWithProfiles
   role?: MemberRole
 }
-const ServerHeader = ({ server, role }: ServerHeaderProps) => {
+export const ServerHeader = ({ server, role }: ServerHeaderProps) => {
   const { onOpen } = useModal()
   const isAdmin = role === MemberRole.ADMIN
   const isMod = role === MemberRole.ADMIN || role === MemberRole.MOD
@@ -79,7 +79,10 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
         )}
         {isMod && <DropdownMenuSeparator />}
         {isAdmin && (
-          <DropdownMenuItem className="px-3 py-2 text-sm text-rose-500 cursor-pointer">
+          <DropdownMenuItem
+            onClick={() => onOpen("deleteServer", { server })}
+            className="px-3 py-2 text-sm text-rose-500 cursor-pointer"
+          >
             Delete Server
             <Trash className="h-4 w-4 ml-auto" />
           </DropdownMenuItem>
@@ -87,7 +90,7 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
         {!isAdmin && (
           <DropdownMenuItem
             onClick={() => onOpen("leaveServer", { server })}
-            className="px-3 py-2 text-smcursor-pointer"
+            className="px-3 py-2 text-sm cursor-pointer text-red-500"
           >
             Leave Server
             <LogOut className="h-4 w-4 ml-auto" />
@@ -97,5 +100,3 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
     </DropdownMenu>
   )
 }
-
-export default ServerHeader
