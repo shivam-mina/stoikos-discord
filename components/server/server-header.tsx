@@ -32,7 +32,7 @@ export const ServerHeader = ({ server, role }: ServerHeaderProps) => {
     <DropdownMenu>
       <DropdownMenuTrigger className="focus:outline-none" asChild>
         <button
-          className="w- h-12 px-3 text-md font-semibold flex items-center
+          className="w-full h-12 px-3 text-md font-semibold flex items-center
          border-neutral-200 dark:border-x-neutral-800 hover:bg-zinc-700/10
          dark:hover:bg-zinc-700/50 transition"
         >
